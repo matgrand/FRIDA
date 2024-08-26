@@ -34,7 +34,6 @@ P3=[meshData.n(meshData.t(:,3),1) meshData.n(meshData.t(:,3),2)];
 centro_t=(P1+P2+P3)/3;
 figure
     hold on;    grid on
-% %     pdemesh(p,[],t)
     mesh=triplot(meshData.t,meshData.n(:,1),meshData.n(:,2),'k');
     axis equal,  hold on, xlabel('r [m]'), ylabel('z [m]')
     axis([0.8 4.5 -1.5 1.5])
@@ -473,61 +472,15 @@ end
 
 figure; hold on; axis equal;
 for ii = 57:max(type)
-
     int_t = find(type == ii);
     triplot(meshData.t(int_t,1:3), meshData.n(:,1), meshData.n(:,2), 'color' ,rand(1,3));
     hold on
     %pause
-
 end
-
-% % 
-% % for ii = 41:2:48
-% %     
-% %     conduttori_ii = conduttori_attivi{ii};
-% %     ind = find(inpolygon(centro_t(:,1),centro_t(:,2),conduttori_ii(:,1),conduttori_ii(:,2)));
-% %     triplot(meshData.t(ind,1:3),meshData.n(:,1),meshData.n(:,2))
-% %     % %     pause
-% %     type(ind) = ii + offset;
-% %     
-% %     conduttori_ii = conduttori_attivi{ii+1};
-% %     ind = find(inpolygon(centro_t(:,1),centro_t(:,2),conduttori_ii(:,1),conduttori_ii(:,2)));
-% %     triplot(meshData.t(ind,1:3),meshData.n(:,1),meshData.n(:,2))
-% %     % %     pause
-% %     type(ind) = ii + offset;
-% %     
-% % end
-% % 
-% % for ii = 49:size(conduttori_attivi,2)
-% %     
-% %     conduttori_ii = conduttori_attivi{ii};
-% %     ind = find(inpolygon(centro_t(:,1),centro_t(:,2),conduttori_ii(:,1),conduttori_ii(:,2)));
-% %     triplot(meshData.t(ind,1:3),meshData.n(:,1),meshData.n(:,2))
-% %     % %     pause
-% %     type(ind) = ii + offset;
-% % end
-% % 
-% % offset = size(conduttori_attivi,2);
-% % 
-% % for ii = 1:size(conduttori_saddle,2)
-% %    
-% %     conduttori_ii = conduttori_saddle{ii};
-% %     ind = find(inpolygon(centro_t(:,1),centro_t(:,2),conduttori_ii(:,1),conduttori_ii(:,2)));
-% %     triplot(meshData.t(ind,1:3),meshData.n(:,1),meshData.n(:,2),'r')
-% % % %     pause
-% %     type(ind) = ii + offset;
-% % end
 
 ind_act = 1:max(type);
 meshData.ind_act = ind_act;
 
-% % figure
-% % triplot(meshData.t(:,1:3),meshData.n(:,1),meshData.n(:,2),'b')
-% % axis equal
-
-
-% ind_CAGE = setdiff(find(inpolygon(centro_t(:,1),centro_t(:,2),CAGE{1}(:,1),CAGE{1}(:,2))), ...
-%     find(inpolygon(centro_t(:,1),centro_t(:,2),VTSSin(:,1),VTSSin(:,2))));
 for ii=1:length(CAGE)
 ind_CAGE{ii} = find(inpolygon(centro_t(:,1),centro_t(:,2),CAGE{ii}(:,1),CAGE{ii}(:,2)));
 end
@@ -545,12 +498,9 @@ type(ind_VTSS) = 103;
 
 triplot(meshData.t(ind_VTSS,1:3),meshData.n(:,1),meshData.n(:,2),'b')
 triplot(meshData.t(ind_shell,1:3),meshData.n(:,1),meshData.n(:,2),'r')
-%triplot(meshData.t(ind_CAGE,1:3),meshData.n(:,1),meshData.n(:,2),'m')
-
 
 ind_pas = 96:103;
 meshData.ind_pas = ind_pas;
-
 
 figure
 triplot(t(:,1:3),p(:,1),p(:,2),'k')
@@ -560,7 +510,6 @@ for ii = 1:max(type)
         triplot(t(type == ii,1:3),p(:,1),p(:,2),'color',rand(3,1))
     catch
     end
-    % %     pause
 end
 
 meshData.type = type;

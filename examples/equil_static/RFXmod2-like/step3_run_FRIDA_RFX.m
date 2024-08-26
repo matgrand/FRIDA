@@ -160,6 +160,7 @@ filename_save = 'temp_save';
 
 SETTINGS.filename = 'RFXmod2_28906_static';
 
+%resaving the inputs for the frida function call later
 load('./data_in_FRIDA/tmp_INPUT_FRIDA_geo.mat');
 save(['./data_in_FRIDA/INPUT_FRIDA_geo_', SETTINGS.filename, '.mat'], ...
     'meshData', 'meshData_pla', 'sensors');
@@ -205,13 +206,18 @@ SETTINGS.RUN = 1;
 close all
 [OUT_FRIDA_TD] = main_run_FRIDA_evol_VI(SETTINGS);
 
+% save('OUT_FRIDA_TD_RFXmod_36922_rampdown_11.mat', ...
+%     'OUT_FRIDA_TD' ,...
+%     'IE_evol', ...
+%     'meshData_pla', ...
+%     'meshData_ext');
+% 
+
 save('OUT_FRIDA_TD_RFXmod_36922_rampdown_11.mat', ...
     'OUT_FRIDA_TD' ,...
     'IE_evol', ...
     'meshData_pla', ...
-    'meshData_ext');
-
-
+    'meshData');
 
 
 
