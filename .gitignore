@@ -44,10 +44,14 @@ Thumbs.db
 
 #############################à
 
-**/data_run_FRIDA/*
+*/data_run_FRIDA/*
 
 *28906.mat
 *data_debug.mat
 *.dmg
 *.exe
 *INPUT_FRIDA_geo*
+*out_frida_static_mg_frida_test.mat
+*RFX_mod2_geometry.mat
+*data_in_FRIDA/INPUT_FRIDA_equil_mg_frida_test.mat
+*data_in_FRIDA/tmp_INPUT_FRIDA_geo.mat
